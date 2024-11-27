@@ -1,13 +1,19 @@
 package edu.miracosta.cs112.finalproject.finalproject;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
 
@@ -41,12 +47,29 @@ public class CalendarController {
             int column = (startDayOfWeek + day - 1) % 7;
             int row = (startDayOfWeek + day - 1) / 7;
             Button dayButton = new Button(String.valueOf(day));
+            dayButton.setOnAction(actionEvent -> {
+                try {
+                    handleDayButton();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             dayButton.setPrefSize(148, 120);
             dayButton.setFont(new Font(18));
             dayButton.setAlignment(Pos.TOP_LEFT);
             dayButton.setPadding(new javafx.geometry.Insets(10, 10, 0, 10));
             calendarGrid.add(dayButton, column, row);
         }
+    }
+
+    public void handleDayButton()throws IOException {
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("TasksViewer.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.setTitle("Task Viewer");
+        stage.show();
     }
 
     @FXML
