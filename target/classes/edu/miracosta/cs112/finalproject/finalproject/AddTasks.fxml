@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.miracosta.cs112.finalproject.finalproject.AddTasksController">
    <children>
       <Label alignment="CENTER" layoutX="150.0" layoutY="14.0" prefHeight="40.0" prefWidth="300.0" text="Add Tasks">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="returnToTaskViewer" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="&lt;-----" />
+      <Button fx:id="returnToTaskViewer" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleReturnToTaskViewer" prefHeight="36.0" prefWidth="100.0" text="&lt;-----" />
       <TextField fx:id="taskName" layoutX="14.0" layoutY="86.0" prefHeight="30.0" prefWidth="570.0" promptText="Task Name" />
       <TextArea fx:id="taskDescription" layoutX="14.0" layoutY="128.0" prefHeight="209.0" prefWidth="570.0" promptText="Task Description" />
-      <Button fx:id="addToCalendar" layoutX="412.0" layoutY="345.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="172.0" text="Add to Calendar">
+      <Button fx:id="addToCalendar" layoutX="412.0" layoutY="345.0" mnemonicParsing="false" onAction="#addToCalendar" prefHeight="47.0" prefWidth="172.0" text="Add to Calendar">
          <font>
             <Font size="18.0" />
          </font>

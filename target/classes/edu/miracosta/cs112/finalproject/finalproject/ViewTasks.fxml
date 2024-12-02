@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" fx:controller="edu.miracosta.cs112.finalproject.finalproject.ViewTasksController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER" layoutX="150.0" layoutY="14.0" prefHeight="40.0" prefWidth="300.0" text="View Task">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#returnToListTasks" prefHeight="36.0" prefWidth="100.0" text="&lt;-----" />
+      <Button layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleReturnToTaskViewer" prefHeight="36.0" prefWidth="100.0" text="&lt;-----" />
       <Label fx:id="taskName" layoutX="14.0" layoutY="80.0" prefHeight="30.0" prefWidth="570.0" text="Task Title" />
       <Label fx:id="taskDescription" alignment="TOP_LEFT" layoutX="14.0" layoutY="117.0" prefHeight="209.0" prefWidth="570.0" text="Task Description" />
    </children>
