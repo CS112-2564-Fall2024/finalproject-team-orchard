@@ -31,8 +31,6 @@ public class AddTasksController {
 
         Task newTask = new Task(title, description);
         TaskManager.addTask(newTask);
-
-        // Optionally, print to the console for verification
         System.out.println("Added Task: " + newTask);
 
         taskName.clear();

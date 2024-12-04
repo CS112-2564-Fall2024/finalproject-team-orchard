@@ -16,17 +16,12 @@ public class ViewTasksController {
     @FXML
     private Label taskDescription;
 
-    private Task task; // To hold the selected task
-
-    // Set the task to be displayed
+    private Task task;
     public void setTask(Task task) {
         this.task = task;
-        // Update the labels with the task's details
         taskName.setText(task.getTitle());
         taskDescription.setText(task.getDescription());
     }
-
-    // Handle the return action to close the window
     public void handleReturnToTaskViewer() {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();

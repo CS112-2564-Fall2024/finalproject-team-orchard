@@ -20,7 +20,6 @@ public class ListTasksController {
     private ListView<String> taskListView;
 
     public void initialize() {
-        // Populate the ListView with task titles from TaskManager
         for (Task task : TaskManager.getTasks()) {
             taskListView.getItems().add(task.getTitle());
         }
@@ -31,13 +30,10 @@ public class ListTasksController {
         stage.close();
     }
 
-    // Handle item click in ListView
     public void handleTaskClick(MouseEvent event) throws IOException {
-        // Get the selected task title
         String selectedTaskTitle = taskListView.getSelectionModel().getSelectedItem();
 
         if (selectedTaskTitle != null) {
-            // Find the task by title
             Task selectedTask = null;
             for (Task task : TaskManager.getTasks()) {
                 if (task.getTitle().equals(selectedTaskTitle)) {
@@ -47,7 +43,6 @@ public class ListTasksController {
             }
 
             if (selectedTask != null) {
-                // Open a new window with task details
                 openTaskDetailsWindow(selectedTask);
             }
         }
@@ -60,8 +55,6 @@ public class ListTasksController {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.setTitle("View Task");
-
-        // Pass the selected task to the ViewTasksController
         ViewTasksController controller = fxmlLoader.getController();
         controller.setTask(task);
 
