@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.util.Date;
 
 public class CalendarController {
 
@@ -29,6 +30,7 @@ public class CalendarController {
     public CalendarController() {
         currentMonth = YearMonth.now();
     }
+
 
     @FXML
     public void initialize() {
@@ -46,10 +48,11 @@ public class CalendarController {
         for (int day = 1; day <= daysInMonth; day++) {
             int column = (startDayOfWeek + day - 1) % 7;
             int row = (startDayOfWeek + day - 1) / 7;
-            Button dayButton = new Button(String.valueOf(day));
+            DayButton dayButton = new DayButton(String.valueOf(day));
+            dayButton.setDate(new Date(2024, 12, day));
             dayButton.setOnAction(actionEvent -> {
                 try {
-                    handleDayButton();
+                    handleDayButton(dayButton);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -62,7 +65,7 @@ public class CalendarController {
         }
     }
 
-    public void handleDayButton()throws IOException {
+    public void handleDayButton(DayButton dayButton)throws IOException {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("TasksViewer.fxml"));
@@ -70,6 +73,9 @@ public class CalendarController {
         stage.setScene(scene);
         stage.setTitle("Task Viewer");
         stage.show();
+        // todo: pass the date to the task viewer
+        dayButton.getDate();
+
     }
 
     @FXML
