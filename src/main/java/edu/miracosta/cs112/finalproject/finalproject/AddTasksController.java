@@ -35,5 +35,7 @@ public class AddTasksController {
         // Optionally, print to the console for verification
         System.out.println("Added Task: " + newTask);
 
+        taskName.clear();
+        taskDescription.clear();
     }
 }
