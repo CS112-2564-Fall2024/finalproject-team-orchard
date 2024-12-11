@@ -49,7 +49,7 @@ public class CalendarController {
             int column = (startDayOfWeek + day - 1) % 7;
             int row = (startDayOfWeek + day - 1) / 7;
             DayButton dayButton = new DayButton(String.valueOf(day));
-            dayButton.setDate(new Date(2024, 12, day));
+            dayButton.setDate(new Date(currentMonth.getYear() - 1900, currentMonth.getMonth().getValue() - 1, day));
             dayButton.setOnAction(actionEvent -> {
                 try {
                     handleDayButton(dayButton);
