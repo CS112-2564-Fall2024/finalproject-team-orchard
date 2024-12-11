@@ -31,7 +31,6 @@ public class CalendarController {
         currentMonth = YearMonth.now();
     }
 
-
     @FXML
     public void initialize() {
         System.out.println("Initializing the calendar...");
@@ -39,9 +38,7 @@ public class CalendarController {
         calendarGrid.getChildren().clear();
         LocalDate firstDayOfMonth = currentMonth.atDay(1);
         int daysInMonth = currentMonth.lengthOfMonth();
-        // Get the day of the week for the first day of the month (1 = Monday, 7 = Sunday)
         int startDayOfWeek = firstDayOfMonth.getDayOfWeek().getValue();
-        // Adjust the day to match JavaFX Calendar (0 = Sunday, 6 = Saturday)
         if (startDayOfWeek == 7) {
             startDayOfWeek = 0;
         }
@@ -65,7 +62,7 @@ public class CalendarController {
         }
     }
 
-    public void handleDayButton(DayButton dayButton)throws IOException {
+    public void handleDayButton(DayButton dayButton) throws IOException {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("TasksViewer.fxml"));
@@ -73,9 +70,7 @@ public class CalendarController {
         stage.setScene(scene);
         stage.setTitle("Task Viewer");
         stage.show();
-        // todo: pass the date to the task viewer
         dayButton.getDate();
-
     }
 
     @FXML
@@ -90,5 +85,21 @@ public class CalendarController {
         System.out.println("Back month button clicked");
         currentMonth = currentMonth.minusMonths(1);
         initialize();
+    }
+
+    public class DayButton extends Button {
+        Date date;
+
+        public DayButton(String s) {
+            super(s);
+        }
+
+        public Date getDate() {
+            return date;
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
+        }
     }
 }

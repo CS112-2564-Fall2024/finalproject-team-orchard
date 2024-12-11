@@ -1,0 +1,32 @@
+User Experience	            TRUE	What is the project's goal?
+The goal of this project was to create a calendar that dynamically displays days in a month depending on the year,
+and then can record inputted tasks
+
+GUI Interface	            TRUE	Is the project accessible through GUI?
+Yes, most if not all of our program is accessed through GUI menus
+
+UML Design	                TRUE	Is there a planned architecture?
+Yes, there is an attached draw.io rough draft below
+
+Core Class	                TRUE	Is there a class that drives the application?
+Yes, the Main class is responsible for starting the program and acts as a central point for many of the components
+
+Abstract Class	            TRUE	Is there an abstract class and or interface?
+Yes, BaseTaskController is an abstract class that serves as a parent for ViewTasksControllers.
+It holds shared functionality and properties that are common across individual controllers, such as managing a `Task` object
+
+Inner Class	                TRUE	Does an inner class encapsulate data?
+Yes, the DayButton class in CalendarController encapsulates data by storing a Date object that represents the specific date
+for each button. It controls access to this data through getter and setter methods.
+
+
+Inheritance/Polymorphism	TRUE	Do child classes have varying behavior?
+Both Main and ViewTasksController inherit properties from Application and BaseTaskController respectively.ViewTasksController
+inherits the setTask() and closeWindow() methods from BaseTaskController, as well as the task field.
+This means the ViewTasksController has access to those methods and fields.
+
+Custom Exception	        FALSE	Was a custom exception implemented?
+
+
+Javadoc Core Class	        TRUE	Has the core class been fully documented?
+Yes, the core class, or Main.java has been fully documented

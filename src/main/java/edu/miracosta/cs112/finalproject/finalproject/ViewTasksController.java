@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class ViewTasksController {
+public class ViewTasksController extends BaseTaskController {
 
     @FXML
     private AnchorPane anchorPane;
@@ -16,14 +16,15 @@ public class ViewTasksController {
     @FXML
     private Label taskDescription;
 
-    private Task task;
+    @Override
     public void setTask(Task task) {
-        this.task = task;
+        super.setTask(task);
         taskName.setText(task.getTitle());
         taskDescription.setText(task.getDescription());
     }
+
     public void handleReturnToTaskViewer() {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.close();
+        closeWindow(stage);
     }
 }
