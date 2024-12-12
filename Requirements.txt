@@ -29,4 +29,4 @@ Custom Exception	        FALSE	Was a custom exception implemented?
 
 
 Javadoc Core Class	        TRUE	Has the core class been fully documented?
-Yes, the core class, or Main.java has been fully documented
+Yes, the core class, or CalendarController.java has been fully documented
